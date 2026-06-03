@@ -88,8 +88,8 @@ export default function ChatBot() {
 
       {/* ── Fenêtre de chat ──────────────────────────────────────────── */}
       {open && (
-        <div className="fixed inset-x-3 bottom-3 sm:inset-x-auto sm:right-5 sm:bottom-5 z-50 sm:w-96 max-w-[calc(100vw-24px)] rounded-2xl shadow-2xl overflow-hidden flex flex-col bg-white"
-             style={{ height: 'min(560px, calc(100vh - 40px))' }}>
+        <div className="fixed inset-x-2 bottom-2 sm:inset-x-auto sm:right-5 sm:bottom-5 z-[60] sm:w-96 max-w-[calc(100vw-16px)] rounded-2xl shadow-2xl overflow-hidden flex flex-col bg-white"
+             style={{ height: 'min(600px, calc(100dvh - 24px))' }}>
 
           {/* En-tête */}
           <div className="flex items-center justify-between px-4 py-3 shrink-0"
@@ -166,7 +166,7 @@ export default function ChatBot() {
                 value={input}
                 onChange={e => setInput(e.target.value)}
                 placeholder="Écrivez votre message..."
-                className="flex-1 rounded-xl border px-3.5 py-2.5 text-sm focus:outline-none focus:border-orange-400 transition-colors"
+                className="flex-1 min-w-0 rounded-xl border px-3.5 py-2.5 text-base sm:text-sm focus:outline-none focus:border-orange-400 transition-colors"
                 style={{ borderColor: '#E5E7EB' }}
               />
               <button
