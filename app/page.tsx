@@ -7,7 +7,7 @@ import {
   Phone, Mail, MapPin, Menu, X, ChevronRight, Sun,
   Shield, Clock, Award, HeartHandshake, CheckCircle2,
   ArrowRight, ChevronDown, Lightbulb,
-  Target, Zap, Globe,
+  Target, Zap, Globe, Star, Quote,
 } from 'lucide-react';
 
 // ── Couleurs ──────────────────────────────────────────────────────────────────
@@ -139,6 +139,7 @@ const NAVLINKS = [
   { label: 'À propos',  href: '#apropos'   },
   { label: 'Processus', href: '#processus' },
   { label: 'Équipe',    href: '#equipe'    },
+  { label: 'Avis',      href: '#avis'      },
   { label: 'FAQ',       href: '#faq'       },
   { label: 'Contact',   href: '#contact'   },
 ];
@@ -693,6 +694,92 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── AVIS GOOGLE ─────────────────────────────────────────────────── */}
+      <section id="avis" className="py-16 lg:py-24" style={{ background: '#FAFAF9' }}>
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <div className="text-center mb-12 lg:mb-16">
+            <SectionLabel text="Avis clients"/>
+            <SectionTitle>Ils nous font confiance</SectionTitle>
+            <Divider/>
+            <p className="text-gray-500 max-w-xl mx-auto">
+              Découvrez les avis de nos clients sur Google et partagez votre expérience.
+            </p>
+          </div>
+
+          {/* Résumé note Google */}
+          <div className="mx-auto mb-10 max-w-md rounded-2xl bg-white border border-gray-100 shadow-sm p-6 text-center">
+            <div className="flex items-center justify-center gap-2 mb-2">
+              {/* Logo Google (G) */}
+              <svg viewBox="0 0 24 24" className="h-6 w-6" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/>
+                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23z"/>
+                <path fill="#FBBC05" d="M5.84 14.1a6.6 6.6 0 0 1 0-4.2V7.06H2.18a11 11 0 0 0 0 9.88l3.66-2.84z"/>
+                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1A11 11 0 0 0 2.18 7.06l3.66 2.84C6.71 7.31 9.14 5.38 12 5.38z"/>
+              </svg>
+              <span className="text-sm font-bold text-gray-600">Avis Google</span>
+            </div>
+            <div className="text-4xl font-black mb-1" style={{ color: NAVY }}>5,0</div>
+            <div className="flex items-center justify-center gap-0.5 mb-3">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <Star key={i} size={18} fill={GOLD} style={{ color: GOLD }}/>
+              ))}
+            </div>
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=KEKELI+GROUP+Atti%C3%A9gou+Lom%C3%A9"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-xs font-bold"
+              style={{ color: ORANGE }}>
+              Voir tous les avis sur Google <ChevronRight size={13}/>
+            </a>
+          </div>
+
+          {/* Cartes d'avis — REMPLACER par de vrais avis Google de KEKELI */}
+          <div className="grid sm:grid-cols-3 gap-6 mb-10">
+            {[
+              { name: 'Komlan A.', text: "Service de comptabilité impeccable. L'équipe est professionnelle et très réactive. Je recommande vivement KEKELI GROUP." },
+              { name: 'Akossiwa D.', text: "Ils ont créé mon entreprise rapidement et m'ont accompagnée dans toutes les démarches administratives. Merci !" },
+              { name: 'Yao M.', text: "Excellente formation en gestion. Des formateurs compétents et à l'écoute. Une vraie valeur ajoutée pour mon activité." },
+            ].map(({ name, text }) => (
+              <div key={name} className="bg-white rounded-2xl border border-gray-100 hover:shadow-lg transition-shadow p-6 relative">
+                <Quote size={30} className="absolute top-5 right-5 opacity-10" style={{ color: ORANGE }}/>
+                <div className="flex gap-0.5 mb-3">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star key={i} size={14} fill={GOLD} style={{ color: GOLD }}/>
+                  ))}
+                </div>
+                <p className="text-sm text-gray-600 leading-relaxed mb-5 italic">&quot;{text}&quot;</p>
+                <div className="flex items-center gap-3">
+                  <div className="h-9 w-9 rounded-full flex items-center justify-center text-sm font-bold text-white"
+                       style={{ background: ORANGE }}>
+                    {name[0]}
+                  </div>
+                  <div>
+                    <div className="text-sm font-semibold text-gray-700">{name}</div>
+                    <div className="text-[11px] text-gray-400">Client KEKELI GROUP</div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* CTA laisser un avis */}
+          <div className="text-center">
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=KEKELI+GROUP+Atti%C3%A9gou+Lom%C3%A9"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl font-bold text-white shadow-lg hover:shadow-xl transition-shadow"
+              style={{ background: `linear-gradient(135deg, ${ORANGE}, ${GOLD})` }}>
+              <Star size={16} fill="white"/> Laisser un avis sur Google
+            </a>
+            <p className="mt-3 text-xs text-gray-400">
+              Votre avis nous aide à nous améliorer et à mieux vous servir.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* ── CONTACT ─────────────────────────────────────────────────────── */}
       <section id="contact" className="py-16 lg:py-24" style={{ background: '#FAFAF9' }}>
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
@@ -800,6 +887,44 @@ export default function HomePage() {
                 Temps de réponse moyen : moins de 30 minutes
               </div>
             </div>
+          </div>
+
+          {/* ── Carte Google Maps ─────────────────────────────────────── */}
+          <div className="mt-8 rounded-2xl overflow-hidden border border-gray-100 shadow-sm bg-white">
+            <div className="flex items-center justify-between px-5 py-3 border-b">
+              <div className="flex items-center gap-2">
+                <MapPin size={16} style={{ color: ORANGE }}/>
+                <span className="text-sm font-semibold" style={{ color: NAVY }}>
+                  Nous trouver — Route de TOGO 2000, Attiégou
+                </span>
+              </div>
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Route+de+TOGO+2000,+Atti%C3%A9gou,+Lom%C3%A9,+Togo"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hidden sm:inline-flex items-center gap-1.5 text-xs font-bold"
+                style={{ color: ORANGE }}>
+                Ouvrir dans Google Maps <ChevronRight size={13}/>
+              </a>
+            </div>
+            <iframe
+              title="Localisation KEKELI GROUP"
+              src="https://www.google.com/maps?q=Route+de+TOGO+2000,+Atti%C3%A9gou,+Lom%C3%A9,+Togo&output=embed"
+              width="100%"
+              height="320"
+              style={{ border: 0 }}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
+            />
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Route+de+TOGO+2000,+Atti%C3%A9gou,+Lom%C3%A9,+Togo"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="sm:hidden flex items-center justify-center gap-1.5 py-3 text-sm font-bold text-white"
+              style={{ background: `linear-gradient(135deg, ${ORANGE}, ${GOLD})` }}>
+              <MapPin size={15}/> Ouvrir dans Google Maps
+            </a>
           </div>
         </div>
       </section>
